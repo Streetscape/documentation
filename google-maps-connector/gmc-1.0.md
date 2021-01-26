@@ -65,7 +65,7 @@ In this section you will find two type of filters.
 
 All filters will filter out units from that map that do not match the filters enabled by the user. Eg: If "For Sale" is selected, only units with the status of "For Sale" will be shown on the map and all other units will vanish. If the user also selects the "Sold" status filter, all units with the status of "Sold" will also appear and be clickable.
 
-## Defining Filter Parameters
+### Defining Filter Parameters
 
 New filters can be added to any `ul.filter-group` by adding a new `<li></li>`as a child. Follow the pattern as outlined above. The `filter_field_name` and `filter_value` attribute must be set to the field name and value you want to filter. If you would like to see a complete list of fields that can be filtered, open the dev tools in your browser and select the network tab before clicking on a unit on your map. You should see the response payload returned from the streetscape API which contains all field names and values for the unit clicked.  
 
