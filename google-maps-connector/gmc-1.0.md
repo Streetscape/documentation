@@ -2,7 +2,7 @@
 
 # Quick Start
 
-When you receive your integration kit, there a few things you'll need to take care in order to get the map working.
+When you receive your integration kit, there are a few things you'll need to take care in order to get the map working.
 
 ## Configure your google maps client
 
