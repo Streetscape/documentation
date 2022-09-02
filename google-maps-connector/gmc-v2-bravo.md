@@ -57,17 +57,17 @@ The mapConfig object is where the majority of the map customization is defined. 
 
 ```javascript
 var mapConfig = {
-	overlayType: 'tile', //
-	mapTargetId: 'mapsplus', // This needs to correspond to the id of the element of where the map will display.
-	mapKey: 'a1b2c3', // This is your Streetscape Phase API key. This currently corresponds the "primary" phase in the community. It is provided in your map export.
-    additionalMapKeys: 'b1c2d3, c1d2e3, d1e2f3, ...', // OPTIONAL: Additional map keys - each key corresponds to an individual phase.
-	customLayout: 'lot_info_window_outer', // OPTIONAL: Set to the id of a custom info window content container. The content of this container will be cloned into the dialog window. Example: everything inside <div id="lot_info_window_outer"> will be copied into the dialog window.
-	map_options: {
+  overlayType: 'tile', //
+  mapTargetId: 'mapsplus', // This needs to correspond to the id of the element of where the map will display.
+  mapKey: 'a1b2c3', // This is your Streetscape Phase API key. This currently corresponds the "primary" phase in the community. It is provided in your map export.
+  additionalMapKeys: 'b1c2d3, c1d2e3, d1e2f3, ...', // OPTIONAL: Additional map keys - each key corresponds to an individual phase.
+  customLayout: 'lot_info_window_outer', // OPTIONAL: Set to the id of a custom info window content container. The content of this container will be cloned into the dialog window. Example: everything inside <div id="lot_info_window_outer"> will be copied into the dialog window.
+  map_options: {
 		
     // We configure the starting position and zoom level for what we feel looks "good", but you have full control to adjust as necessary.
     zoom: 17, // Starting zoom level
 
-	// Starting lat and lon positioning
+    // Starting lat and lon positioning
     starting: { 
       'lat': 51.12762, 
       'lon': -112.4319 
@@ -89,17 +89,17 @@ var mapConfig = {
     rotateControl: false
 	},
 
-	dialogOptions: { // This uses the jQuery UI dialog() options and events.
-      width: '300', // OPTIONAL      
-      modal: false,
-	  position: { 
-        my: 'center top', 
-        at: 'center top+87'
-      },
-      title: '' // The default is to dynamically populate with the civic address of the lot, or the legal lot description if there is no civic.
-		
-      open:function(event,ui) {}, // More detail in next section.
-      close: function(event,ui) {}
+  dialogOptions: { // This uses the jQuery UI dialog() options and events.
+    width: '300', // OPTIONAL      
+    modal: false,
+    position: { 
+      my: 'center top', 
+      at: 'center top+87'
+    },
+    title: '' // The default is to dynamically populate with the civic address of the lot, or the legal lot description if there is no civic.
+    
+    open:function(event,ui) {}, // More detail in next section.
+    close: function(event,ui) {}
 	}
 };
 ```
@@ -113,34 +113,31 @@ When a lot is clicked on the map, the data associated with that lot is returned 
 ```javascript
 dialogOptions: {
 
-	open:function(event,ui){
+  open:function(event,ui){
     
-		var lotData = $(this).dialog('option','lotData'); // This is the lot data that is returned when a lot is clicked.
-    
-        // This is a great place to see the structure and contents of what's returned in the lotData object via the console in your browser's developer tools.
-        console.log(lotData);
-    
-        // Fill the status indicator with the colour returned from the lotData
-		$(this).find('.lot_status_color_block').css({'background-color':'#'+lotData.LotStatus.lot_statuses.map_color});
-    
-        // Configure dialog buttons
-		$(this).dialog('option', 'buttons',
-        [
-		  {
-			text: 'More Information', // Whatever call to action you like.
-			click: function(e) {
-			  // Example: A mailto configuration with lot details inserted into the subject line
-              window.open('mailto:info@mycompany.com?subject=Inquiry Regarding: '+lotData.Community.name+' Phase '+lotData.Phase.name+' Block '+lotData.Block.name+' Lot '+lotData.Lot.name);
-          
-            // Example: A URL to a landing page on your website that accepts custom parameters
-            window.open('https://www.mycompany.com?community='+lotData.Community.name+'&phase='+lotData.Phase.name+'&=lot '+lotData.Lot.name);
-			}
-		  }
-		]);
-                            
-      // Further customization of the title - if you want to customize the dynamic creation of the dialog title.
-      $(this).dialog({title : 'Details about Lot ' + lotData.Lot.name + ' in Phase ' + lotData.Phase.name});              
-	}
+    var lotData = $(this).dialog('option','lotData'); // This is the lot data that is returned when a lot is clicked.
+      
+    // This is a great place to see the structure and contents of what's returned in the lotData object via the console in your browser's developer tools.
+    console.log(lotData);
+      
+    // Fill the status indicator with the colour returned from the lotData
+    $(this).find('.lot_status_color_block').css({'background-color':'#'+lotData.LotStatus.lot_statuses.map_color});
+      
+    // Configure dialog buttons
+    $(this).dialog('option', 'buttons',[{
+      text: 'More Information', // Whatever call to action you like.
+      click: function(e) {
+        // Example: A mailto configuration with lot details inserted into the subject line
+        window.open('mailto:info@mycompany.com?subject=Inquiry Regarding: '+lotData.Community.name+' Phase '+lotData.Phase.name+' Block '+lotData.Block.name+' Lot '+lotData.Lot.name);
+            
+        // Example: A URL to a landing page on your website that accepts custom parameters
+        window.open('https://www.mycompany.com?community='+lotData.Community.name+'&phase='+lotData.Phase.name+'&=lot '+lotData.Lot.name);
+      }
+    }]);
+                              
+    // Further customization of the title - if you want to customize the dynamic creation of the dialog title.
+    $(this).dialog({title : 'Details about Lot ' + lotData.Lot.name + ' in Phase ' + lotData.Phase.name});              
+  }
 }
 ```
 ## Configuring Dialog Layout and Content
@@ -314,16 +311,16 @@ In the "Event Listeners" portion of your starter code, you want to reference the
 // START page event listeners.
 
 $('.lot_status_selector').on('click',function(event){
-	selector($(this));
+  selector($(this));
 });
 
 $('.product_type_selector').on('click',function(event){
-	selector($(this));
+  selector($(this));
 });
 
 // If you had just added the Building Pocket filter group, you would need to add the following.
 $('.building_pocket_selector').on('click',function(event){
-	selector($(this));
+  selector($(this));
 });
 ```
 
