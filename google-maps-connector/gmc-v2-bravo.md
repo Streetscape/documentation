@@ -87,7 +87,7 @@ var mapConfig = {
       position: google.maps.ControlPosition.RIGHT_TOP
     },
     rotateControl: false
-	},
+  },
 
   dialogOptions: { // This uses the jQuery UI dialog() options and events.
     width: '300', // OPTIONAL      
@@ -100,7 +100,7 @@ var mapConfig = {
     
     open:function(event,ui) {}, // More detail in next section.
     close: function(event,ui) {}
-	}
+  }
 };
 ```
 
