@@ -4,4 +4,4 @@ Streetscape is a managed service for land developers to easily administrate land
 
 [Streetscape API V1.2](https://documenter.getpostman.com/view/2189884/TW6urA3y)
 
-[Google Maps Connector V1.0](https://github.com/Streetscape/documentation/blob/master/google-maps-connector/gmc-1.0.md)
+[Google Maps Connector - V2 Bravo Edition](https://github.com/Streetscape/documentation/blob/master/google-maps-connector/gmc-v2-bravo.md)
