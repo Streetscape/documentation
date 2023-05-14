@@ -280,6 +280,31 @@ Another example filtering on Product Type:
 </ul>
 ```
 
+#### Changing a Filter's Label
+
+Our starter code will contain filter data based on what had been provided to us, or from actual data that had already been imported into Streetscape. Let's say you've got the following filter set up:
+
+```html
+<h3>Product Type</h3>
+<ul class="list-unstyled filter-group">
+  <li class="product_type_selector" filter_field_name="CustomRecord.product_type" filter_value="Front Drive Single Family">
+    <i class="fa fa-square-o"></i>Front Drive Single Family
+  </li>
+</ul>
+````
+
+If you wanted to change the label only, without having to change the underlying data on Streetscape, as long as the "value" of the list item matches the data on Streetscape, the filter will work. So, for example, you could adjust the label as such:
+
+```html
+<h3>Product Type</h3>
+<ul class="list-unstyled filter-group">
+  <li class="product_type_selector" filter_field_name="CustomRecord.product_type" filter_value="Front Drive Single Family">
+    <i class="fa fa-square-o"></i>SF - Front Drive
+  </li>
+</ul>
+````
+
+
 ### Additional Values Attribute
 
 Let's say in the above example, you wanted to group together multiple values into one filter selection. For example, assume you wanted to group the last three Rear Lane options into one filter item labeled "Rear Lane Single Family". You can add an "additional_values" attribute to the primary element with the value being a JSON array of the extra values.
